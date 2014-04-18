@@ -1,0 +1,81 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"> 
+    <head>
+        <title></title>
+        <meta name="google" value="notranslate" />         
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+        <style type="text/css" media="screen"> 
+            html, body  { height:100%; }
+            body { margin:0; padding:0; overflow:auto; text-align:center; background-color: #ffffff; } 
+			li {text-align:left;}		
+            object:focus { outline:none; }
+            #flashContent { display:none; }
+			#rmtplist { text-align:center; width:854px; margin:auto;}
+        </style>
+        
+        <!-- Enable Browser History by replacing useBrowserHistory tokens with two hyphens -->
+        <!-- BEGIN Browser History required section -->
+        <link rel="stylesheet" type="text/css" href="history/history.css" />
+        <script type="text/javascript" src="history/history.js"></script>
+        <!-- END Browser History required section -->  
+            
+        <script type="text/javascript" src="swfobject.js"></script>
+		<script type="text/javascript" src="index.js"></script>
+        <script type="text/javascript">
+
+
+			var params = getSearchParameters();	
+		
+            // For version detection, set to min. required Flash Player version, or 0 (or 0.0.0), for no version detection. 
+            var swfVersionStr = "11.1.0";
+            // To use express install, set to playerProductInstall.swf, otherwise the empty string. 
+            var xiSwfUrlStr = "playerProductInstall.swf";
+            var flashvars = {rtmp:params["rtmp"]};
+            var params = {};
+            params.quality = "high";
+            params.bgcolor = "#ffffff";
+            params.allowscriptaccess = "always";
+            params.allowfullscreen = "true";
+            var attributes = {};
+            attributes.id = "playerAS3";
+            attributes.name = "playerAS3";
+            attributes.align = "middle";
+            swfobject.embedSWF(
+                "PlayerAS3.swf", "flashContent", 
+                "854", "510", 
+                swfVersionStr, xiSwfUrlStr, 
+                flashvars, params, attributes);
+            // JavaScript enabled so display the flashContent div in case it is not replaced with a swf object.
+            swfobject.createCSS("#flashContent", "display:block;text-align:left;");
+        </script>
+    </head>
+    <body onload="pageInit();">
+        <!-- SWFObject's dynamic embed method replaces this alternative HTML content with Flash content when enough 
+             JavaScript and Flash plug-in support is available. The div is initially hidden so that it doesn't show
+             when JavaScript is disabled.
+        -->
+        <div id="flashContent">
+            <p> To view this page ensure that Adobe Flash Player version 11.1.0 or greater is installed. </p>
+            <script type="text/javascript"> 
+                var pageHost = ((document.location.protocol == "https:") ? "https://" : "http://"); 
+                document.write("<a href='http://www.adobe.com/go/getflashplayer'><img src='" 
+                                + pageHost + "www.adobe.com/images/shared/download_buttons/get_flash_player.gif' alt='Get Adobe Flash player' /></a>" ); 
+            </script> 
+        </div>
+        
+		<br>
+		<div id="follow_btn" style="display:none;"> <a href='javascript:followAPI()'>FOLLOW</a> </div> 
+		<div id="unfollow_btn" style="display:none;"> <a href='javascript:unfollowAPI()'>UNFOLLOW</a> </div> 		
+		<br>
+		<div id="rmtplist">		
+		livestream.com RTMP stream examples:
+		<ul id='streams'></ul>
+
+			<ul><li>
+				<form name="rtmp_custom">Enter rmtp: <input type="text" name="rmtpURL" size="100"><a href='javascript:watchRTMP(document.forms["rtmp_custom"]["rmtpURL"].value);'> WATCH </a>
+				</form>
+			</li></ul>
+		</div>
+   </body>
+</html>
