@@ -75,7 +75,7 @@ package view.player
 					_commandsManager.executeCommand(CommandsEnum.MESSAGE_ERROR_STREAM);
 					break;
 				
-				case "NetStream.Play.Start":
+				case "NetStream.Buffer.Full":
 					_commandsManager.executeCommand(CommandsEnum.MESSAGE_HIDE_BLOCKER);
 					break;
 			}

@@ -39,15 +39,15 @@ package view.player
 		
 			if (e.info.code == "NetConnection.Connect.Success")
 			{
-
-					trace("Creating NetStream");
-					_netStreamObj = new NetStream(_nc);
-					_netStreamObj.addEventListener(NetStatusEvent.NET_STATUS, onStreamStatus);					
-					_netStreamObj.client = _netStreamClient.getClient();
-					_netStreamObj.play(_streamID);
-					_vid.attachNetStream(_netStreamObj);
-					setInterval(playback, 1000);
-
+				trace("Creating NetStream");
+				_netStreamObj = new NetStream(_nc);
+				_netStreamObj.addEventListener(NetStatusEvent.NET_STATUS, onStreamStatus);					
+				_netStreamObj.client = _netStreamClient.getClient();
+				_netStreamObj.bufferTime = 10;
+				_netStreamObj.inBufferSeek = true;			
+				_netStreamObj.play(_streamID);
+				_vid.attachNetStream(_netStreamObj);
+				setInterval(playback, 1000);
 			}
 		
 			switch (e.info.code) 
